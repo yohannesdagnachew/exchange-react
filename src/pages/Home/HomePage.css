@@ -1,0 +1,57 @@
+
+.table-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 98%;
+    padding: 20px;
+    background-color: 'green';
+    gap: 30px;
+}
+
+.table {
+    width: 80%;
+
+}
+
+.graph {
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+    max-width: 60%;
+    width: 100%;
+}
+
+.dropdown {
+    margin-top: 5%;
+    width: 25%;
+    margin-left: 3%;
+}
+
+
+@media screen and (max-width: 960px) {
+    .table-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table {
+        width:90%;
+        padding-right: 10%;
+        padding-left: 2%;
+
+    }
+
+    .graph {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 10%;
+    }
+
+    h1 {
+        display: none;
+    }
+}
