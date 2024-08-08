@@ -1,31 +1,19 @@
-
-.table-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 98%;
-    padding: 20px;
-    background-color: 'green';
-    gap: 30px;
-}
-
 .table {
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
 
 }
 
 .graph {
-    display: flex;
-    flex-direction: column;
-     justify-content: center;
-    max-width: 60%;
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .dropdown {
     margin-top: 5%;
     width: 25%;
-    margin-left: 3%;
+    margin: 20px auto; 
+
 }
 
 .banks-data {
@@ -59,19 +47,14 @@
   }
 
 @media screen and (max-width: 960px) {
-    .table-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
+  
+    .dropdown {
+        width: 50%;
+        margin: 20px auto;
     }
 
     .table {
-        width:90%;
-        padding-right: 10%;
-        padding-left: 2%;
-
+        width: 90%;
     }
 
     .graph {
@@ -81,6 +64,14 @@
     }
 
     h1 {
+        display: none;
+    }
+
+    .banks-data {
+        padding: 30px;
+    }
+
+    .graph {
         display: none;
     }
 }

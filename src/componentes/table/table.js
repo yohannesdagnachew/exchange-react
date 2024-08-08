@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
 
-const StyledTableCell = styled(TableCell)(({ theme}) => ({
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
@@ -33,12 +33,9 @@ function createData(bank, buying, selling, currency) {
   return { bank, buying, selling, currency };
 }
 
-
-
-export default function CustomizedTables({dropdownValue}) {
+export default function CustomizedTables({ dropdownValue }) {
   const rows = [];
   const [data, setData] = useState([]);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,49 +48,51 @@ export default function CustomizedTables({dropdownValue}) {
     fetchData();
   }, [dropdownValue]);
 
-
-     data.map((item, index) => {
-    if (item.price.buying === null ){
-        return;
+  data.map((item, index) => {
+    if (item.price.buying === null) {
+      return;
     }
-
 
     rows.push(
       createData(
         item.bankName,
         item.price.buying,
         item.price.selling,
-        index+1,
-      ));
-     });
-
-
+        index + 1
+      )
+    );
+  });
 
   return (
-
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth:10 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Bank</StyledTableCell>
-            <StyledTableCell align="center">Buying</StyledTableCell>
-            <StyledTableCell align="center">Selling</StyledTableCell>
-            <StyledTableCell align="center">Rank</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.bank}
-              </StyledTableCell>
-              <StyledTableCell align="center">{row.buying}</StyledTableCell>
-              <StyledTableCell align="center">{row.selling}</StyledTableCell>
-              <StyledTableCell align="center">{row.currency}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Table
+      sx={{
+        minWidth: 10,
+        maxWidth: 1000,
+        margin: "auto",
+        border: "2px solid black",
+      }}
+      aria-label="customized table"
+    >
+      <TableHead>
+        <TableRow>
+          <StyledTableCell>Bank</StyledTableCell>
+          <StyledTableCell align="center">Buying</StyledTableCell>
+          <StyledTableCell align="center">Selling</StyledTableCell>
+          <StyledTableCell align="center">Rank</StyledTableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {rows.map((row) => (
+          <StyledTableRow key={row.name}>
+            <StyledTableCell component="th" scope="row">
+              {row.bank}
+            </StyledTableCell>
+            <StyledTableCell align="center">{row.buying}</StyledTableCell>
+            <StyledTableCell align="center">{row.selling}</StyledTableCell>
+            <StyledTableCell align="center">{row.currency}</StyledTableCell>
+          </StyledTableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }

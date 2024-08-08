@@ -16,7 +16,9 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`https://exchange.football-live-tv.com/exchange/`);
+      const response = await axios.get(
+        `https://exchange.football-live-tv.com/exchange/`
+      );
       setBankData(response.data.exchange);
     };
     fetchData();
@@ -44,13 +46,11 @@ export default function HomePage() {
           setDropdownValue={setDropdownValue}
         />
       </div>
-      <div className="table-container">
-        <div className="table">
-          <CustomizedTables dropdownValue={dropdownValue} />
-        </div>
-        <div className="graph">
-          <Graph />
-        </div>
+      <div className="table">
+        <CustomizedTables dropdownValue={dropdownValue} />
+      </div>
+      <div className="graph">
+        <Graph />
       </div>
 
       <div className="banks-data">
