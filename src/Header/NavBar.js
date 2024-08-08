@@ -12,10 +12,10 @@ function NavBar() {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            <span>Exachange</span>
+            <span>Birr Exachange</span>
             {/* <i className="fas fa-code"></i> */}
             <span className="icon">
-              <CodeIcon />
+              {/* <CodeIcon /> */}
             </span>
           </NavLink>
 
@@ -45,12 +45,12 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/blog"
+                to="/sell"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Blog
+                $Sell
               </NavLink>
             </li>
             <li className="nav-item">

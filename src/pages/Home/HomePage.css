@@ -28,6 +28,35 @@
     margin-left: 3%;
 }
 
+.banks-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    gap: 100px;
+}
+
+.conatct-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+
+.banner-ad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#ad-container {
+    width: 320px; /* Width of the ad */
+    height: 50px; /* Height of the ad */
+    margin: 0 auto; /* Center the ad horizontally */
+  }
 
 @media screen and (max-width: 960px) {
     .table-container {

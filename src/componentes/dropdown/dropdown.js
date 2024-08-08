@@ -13,14 +13,14 @@ export default function BasicSelect({dropdownValue, setDropdownValue }) {
   };
 
   return (
-    <Box sx={{ minWidth: 100 }}>
+    <Box sx={{ minWidth: 200 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Currency</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={dropdownValue}
-          label="Age"
+          label="Currency"
           onChange={handleChange}
         >
           <MenuItem value={'USD'}>USD</MenuItem>

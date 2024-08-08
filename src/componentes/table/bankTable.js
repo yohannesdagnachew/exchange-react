@@ -29,41 +29,31 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(bank, buying, selling, currency) {
-  return { bank, buying, selling, currency };
+function createData(name, buying, selling, currency) {
+  return { name, buying, selling, currency };
 }
 
 
 
-export default function CustomizedTables({dropdownValue}) {
+export default function CustomizedTables({bank}) {
   const rows = [];
-  const [data, setData] = useState([]);
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://exchange.football-live-tv.com/exchange/comparison?currency=${dropdownValue}`
-      );
-      setData(response.data.sorted);
-    };
-
-    fetchData();
-  }, [dropdownValue]);
-
+  
+ 
+    const name = bank.name;
+    const data = bank.xChange
+    
 
      data.map((item, index) => {
-    if (item.price.buying === null ){
-        return;
-    }
-
-
+   
+        if (item.buying === null || item.buying === 0 ){
+            return;
+        }
     rows.push(
       createData(
-        item.bankName,
-        item.price.buying,
-        item.price.selling,
-        index+1,
+        name,
+        item.buying,
+        item.selling,
+        item.currency,
       ));
      });
 
@@ -74,22 +64,28 @@ export default function CustomizedTables({dropdownValue}) {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth:10 }} aria-label="customized table">
         <TableHead>
-          <TableRow>
-            <StyledTableCell>Bank</StyledTableCell>
-            <StyledTableCell align="center">Buying</StyledTableCell>
-            <StyledTableCell align="center">Selling</StyledTableCell>
-            <StyledTableCell align="center">Rank</StyledTableCell>
-          </TableRow>
+            <TableRow colSpan={3}>
+              <TableCell colSpan={3} align="center" size="small">
+              <h2
+             style={{
+                fontSize: "28px",
+                color: "black",
+             }}
+            >{name}</h2>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+                <StyledTableCell align="left">Buying</StyledTableCell>
+                <StyledTableCell align="left">Selling</StyledTableCell>
+                <StyledTableCell align="left">Currency</StyledTableCell>
+            </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.bank}
-              </StyledTableCell>
-              <StyledTableCell align="center">{row.buying}</StyledTableCell>
-              <StyledTableCell align="center">{row.selling}</StyledTableCell>
-              <StyledTableCell align="center">{row.currency}</StyledTableCell>
+              <StyledTableCell align="left">{row.buying}</StyledTableCell>
+              <StyledTableCell align="left">{row.selling}</StyledTableCell>
+              <StyledTableCell align="left">{row.currency}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
